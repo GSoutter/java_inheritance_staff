@@ -1,3 +1,5 @@
+import sun.tools.java.BinaryClass;
+
 public abstract class Employee {
 
     private String name;
@@ -32,5 +34,9 @@ public abstract class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public void increaseSalary(double salaryIncrease) {
+        this.salary += salaryIncrease;
     }
 }

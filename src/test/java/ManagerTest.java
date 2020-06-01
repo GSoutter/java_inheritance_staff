@@ -51,6 +51,12 @@ public class ManagerTest {
         assertEquals(20000, manager.getSalary(), 0.01);
     }
 
+    @Test
+    public void canIncrementSalary(){
+        manager.increaseSalary(10);
+        assertEquals(210.00, manager.getSalary(), 0.01);
+    }
+
 
 
 }
