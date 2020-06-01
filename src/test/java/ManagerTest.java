@@ -8,6 +8,8 @@ public class ManagerTest {
 
     private Manager manager;
 
+
+
     @Before
     public void before() {
         manager = new Manager("Dave", "GH 98C", 200.00, "Pencils");
@@ -41,6 +43,12 @@ public class ManagerTest {
     }
 
     @Test
+    public void canNOTSetNameToNothing(){
+        manager.setName("");
+        assertEquals("Dave", manager.getName());
+    }
+
+    @Test
     public void canSetNiNumber(){
         manager.setNiNumber("1");
         assertEquals("1", manager.getNiNumber());
@@ -61,6 +69,18 @@ public class ManagerTest {
     @Test
     public void canPayBonus(){
         assertEquals(2, manager.payBonus(), 0.01);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void cannotConstructSalaryLessThan0(){
+        manager = new Manager("Dave", "GH 98C", -200, "Pencils");
+    }
+
+
+    @Test
+    public void cannotIncrementSalaryNegative(){
+        manager.raiseSalary(-10);
+        assertEquals(200.00, manager.getSalary(), 0.01);
     }
 
 

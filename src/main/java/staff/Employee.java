@@ -1,5 +1,6 @@
 package staff;
 
+import sun.jvm.hotspot.SALauncherLoader;
 import sun.tools.java.BinaryClass;
 
 public abstract class Employee {
@@ -8,9 +9,12 @@ public abstract class Employee {
     private String niNumber;
     private double salary;
 
-    public Employee(String name, String niNumber, double salary){
+    public Employee(String name, String niNumber, double salary) throws IllegalArgumentException{
         this.name = name;
         this.niNumber = niNumber;
+        if (salary <= 0){
+            throw new IllegalArgumentException("Salary cannot be negative");
+        }
         this.salary = salary;
     }
 
@@ -19,7 +23,10 @@ public abstract class Employee {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name.length() > 0){
+            this.name = name;
+
+        }
     }
 
     public String getNiNumber() {
@@ -39,7 +46,9 @@ public abstract class Employee {
     }
 
     public void raiseSalary(double salaryIncrease) {
-        this.salary += salaryIncrease;
+        if (salaryIncrease > 0){
+            this.salary += salaryIncrease;
+        }
     }
 
     public double payBonus() {

@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import staff.Manager;
 import staff.techStaff.Developer;
 
 import static org.junit.Assert.assertEquals;
@@ -55,6 +56,11 @@ public class DeveloperTest {
     @Test
     public void canPayBonus(){
         assertEquals(2, developer.payBonus(), 0.01);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void cannotConstructSalaryLessThan0(){
+        developer = new Developer("Dave", "GH 98C", -200);
     }
 
 
