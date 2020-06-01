@@ -1,6 +1,8 @@
+package staff;
+
 public class Manager extends Employee{
 
-    private String deptName;
+    private final String deptName;
 
 
     public Manager(String name, String niNumber, double salary, String deptName) {

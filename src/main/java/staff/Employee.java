@@ -1,3 +1,5 @@
+package staff;
+
 import sun.tools.java.BinaryClass;
 
 public abstract class Employee {
